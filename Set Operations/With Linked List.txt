@@ -1,0 +1,157 @@
+#include<iostream>
+using namespace std;
+typedef struct link
+{
+unsigned int rno;
+struct link *next;
+}node;
+node *start,*start1,*start2,*uni_s;
+class Sets
+{
+    private:
+    node *temp,*last,*last1,*last2,*
+uni_l;
+    public:
+    int accept()
+        {
+         int ans;
+         start=NULL; last=NULL;
+         cout<<"Enter the roll numbers of students who like butterscotch"<<endl;
+         cout<<"Enter -3 to exit";
+         do
+          {
+           temp= new link;
+            temp->next=NULL;
+            cin>>temp->rno;
+            if(temp->rno==-3)
+                 {
+                  ans=-3;
+                  delete temp;
+                 }
+           else
+             {
+            if(start==NULL)
+             {
+              start=temp;
+                          last=temp;
+              }
+            else
+             {
+              last->next=temp;
+               last=temp;
+             }
+                }
+         }while(ans!=-3);
+         return 0;
+        }
+        
+int accept1()
+        {
+         int ans;
+         start1=NULL; last1=NULL;
+         cout<<"Enter the roll numbers of students who like vanilla"<<endl;
+         cout<<"Enter -1 to exit";
+         do
+          {
+           temp= new link;
+            temp->next=NULL;
+            cin>>temp->rno;
+            if(temp->rno==-1)
+                 {
+                  ans=-1;
+                  delete temp;
+                 }  
+           else
+           {  
+            if(start1==NULL)
+             {
+              start1=temp;
+                          last1=temp;
+              }
+            else
+             {
+              last1->next=temp;
+               last1=temp;
+             }
+               }
+         }while(ans!=-1);
+         return 0;
+        }
+
+int accept2()
+        {
+         int ans;
+         start2=NULL; last2=NULL;
+         cout<<"Enter the roll numbers of students in computer engineering"<<endl;
+         cout<<"Enter -2 to exit";
+         do
+          {
+           temp= new link;
+            temp->next=NULL;
+            cin>>temp->rno;
+            if(temp->rno==-2)
+             {
+              ans=-2;
+              delete temp;
+            }
+           else 
+            {      
+            if(start2==NULL)
+             {
+              start2=temp;
+                          last2=temp;
+              }
+            else
+             {
+              last2->next=temp;
+               last2=temp;
+              } 
+             } 
+         }while(ans!=-2);
+         return 0;
+        }
+        
+int display(node *st)
+ {
+ temp=st;
+    while(temp!=NULL)
+     {
+     cout<<temp->rno<<endl;
+      temp=temp->next;
+     }
+ }
+ 
+int union()
+{
+temp=start1;
+uni_s=NULL;
+while(temp!=NULL)
+{
+if(uni_s==NULL)
+{
+temp1=new link;
+temp1->rno=temp->rno;
+uni_s-rno=temp->rno;
+}
+else
+{
+temp1=new link;
+temp1->rno=temp->rno;
+
+}
+temp=temp->next;     
+};
+int main()
+{
+    Sets ice;
+    ice.accept2();
+    ice.accept();
+    ice.accept1();
+    cout<<"roll numbers of students in computer engineering";
+    ice.display(start2);
+    cout<<"Roll numbers that like butterscotch"<<endl;
+    ice.display(start);
+    cout<<"Roll numbers that like vanilla are"<<endl;
+    ice.display(start1);
+    return 0;
+}

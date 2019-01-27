@@ -1,0 +1,176 @@
+#include<iostream>
+using namespace std;
+class sports
+{
+int m,setA[60],setB[60],setU[60]b,
+c;
+public:
+int getstud()
+{
+cout<<"Enter number of total students";
+cin>>m;
+cout<<"Enter their roll numbers";
+for(int i=0;i<m;i++)
+{
+cin>>setU[i];
+}
+cout<<"Enter number of students playing cricket";
+cin>>c;
+for(int i=0;i<c;i++)
+{
+cin>>setA[i];
+}
+cout<<"Enter students playing badminton";
+cin>>b;
+for(int j=0;j<b;j++)
+{
+cin>>setB[j];
+}
+return 0;
+}
+
+int unionset()
+{
+int setC[60];
+int flag=0;
+int k=0;
+for(int i=0;i<c;i++)
+{
+setC[k]=setA[i];
+k++;
+}
+for(int i=0;i<b;i++)
+{
+for(int j=0;j<c;j++)
+{
+if(setB[i]==setA[j])
+{
+flag=1;
+break;
+}
+}
+if(flag==0)
+{
+setC[k]=setB[i];
+k++;
+}
+flag=0;
+}
+for(int i=0;i<k;i++)
+{
+cout<<setC[i];
+}
+return 0;
+}
+
+int intersect()
+{
+cout<<endl<<"Intersection is";
+int setC[60];
+int k=0;
+for(int i=0;i<c;i++)
+{
+for(int j=0;j<b;j++)
+{
+if(setA[i]==setB[j])
+{
+setC[k]=setA[i];
+k++;
+}
+}
+}
+for(int i=0;i<k;i++)
+{
+cout<<setC[i]<<endl;
+}
+}
+
+int cricket()
+{
+int setC[60];
+int k=0;
+int flag=0;
+cout<<"Students playing only cricket are ";
+for(int i=0;i<c;i++)
+{
+for(int j=0;j<b;j++)
+{
+if(setA[i]==setB[j])
+{
+flag=1;
+break;
+}
+}
+if(flag==0)
+{
+setC[k]=setA[i];
+k++;
+}
+flag=0;
+}
+for(int i=0;i<k;i++)
+{
+cout<<setC[i]<<endl;
+}
+}
+int badminton()
+{
+int setC[60];
+int k=0;
+int flag=0;
+cout<<"Students playing only badminton are ";
+for(int i=0;i<b;i++)
+{
+for(int j=0;j<c;j++)
+{
+if(setB[i]==setA[j])
+{
+flag=1;
+break;
+}
+}
+if(flag==0)
+{
+setC[k]=setB[i];
+k++;
+}
+flag=0;
+}
+for(int i=0;i<k;i++)
+{
+cout<<setC[i];
+}
+}
+
+int neither()
+{
+int setNor[60];
+int flag=0;
+for(int i=0;i<m;i++)
+{
+for(int j=0;j<c;j++)
+{
+if(setU[i]!=setA[j])
+{
+flag=1;
+setNor[i]=setU[i];
+}
+}
+for(int i=0;i<m;i++)
+{
+for(int j=0;j<b;j++)
+{
+if(setNor[i]!=setB[j])
+{
+
+};
+int main()
+{
+sports s1;
+s1.getstud();
+s1.unionset();
+s1.intersect();
+s1.cricket();
+s1.badminton();
+return 0;
+}
